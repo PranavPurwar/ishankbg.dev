@@ -14,6 +14,7 @@ export default defineConfig({
 	integrations: [tailwind(), sitemap(), embed(), mdx({
 		shikiConfig: {
 			theme: 'vitesse-dark',
+
 			wrap: true
 		},
 		gfm: true,

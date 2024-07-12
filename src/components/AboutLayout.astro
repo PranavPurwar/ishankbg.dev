@@ -5,9 +5,9 @@ import avatar from "../assets/pfp.avif"
 
 ---
 <Layout title="About" description="This page is about Ishan Jaiswal" url={Astro.site}>
-	<article class="text-white prose prose-invert">
+	<article class="text-gray-800 prose">
      <div class="flex justify-center items-center">
-      <Image src={avatar} height="250 " width="250" alt="Logo"  />  
+      <Image src={avatar} class="rounded-lg" height="250 " width="250" alt="Logo"  />  
      </div>
 		<slot />
 	</article>

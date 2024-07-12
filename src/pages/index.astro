@@ -51,23 +51,23 @@ export const SKILLS = [
 >
 
 		<section class="flex flex-col gap-4 mb-4">
-			<p class="text-[#] text-3xl font-bold">
+			<p class="text-gray-800 text-3xl font-bold">
 				Ishan Jaiswal
 			</p>
 
-			<p class="text-[#FBF0C6]">
+			<p class="text-gray-600">
 				Passionate Computer Programmer
 			</p>
 		</section>
 <section class="flex flex-col gap-4" aria-label="Recent Articles">
-	<h2 class="text-[#d6bf64] text-xl font-bold">
+	<h2 class="text-gray-700 text-xl font-bold">
 		Recent Articles
 	</h2>
 	<div class="flex flex-col gap-4">
 		{allPosts.map((blog)=> (
-			<div>
+			<div class="text-gray-800">
 				• <time datetime={ new Date(blog.data.pubDate).toISOString()}>{ new Date(blog.data.pubDate).toLocaleDateString() }</time> -
-				<a class="text-[#FFA8CE]" href=`/archive/${blog.slug}` data-astro-prefetch>
+				<a class="text-blue-500 hover:text-blue-800 hover:underline" href=`/archive/${blog.slug}` data-astro-prefetch>
 					{ blog.data.title }
 				</a>
 			</div>
@@ -75,15 +75,15 @@ export const SKILLS = [
 	</div>
 </>
 	<section class="flex flex-col gap-4" aria-label="Quick Links">
-		<h2 class="text-[#d6bf64] text-xl font-bold">
+		<h2 class="text-gray-700 text-xl font-bold">
 			Quick Links
 		</h2>
 
-		<div class="flex flex-col">
+		<div class="flex flex-col text-orange-900">
 			{LINKS.map((link)=> (
 				<div>
 					•
-					<a class="text-[#FFA8CE]" href=`${link.url}`>
+					<a class="text-blue-500 hover:text-blue-800 hover:underline" href=`${link.url}`>
 						{ link.title }
 					</a>
 				</div>
@@ -92,12 +92,12 @@ export const SKILLS = [
 		</div>
 	</>
 	<section class="flex flex-col gap-4">
-		<h2 class="text-[#d6bf64] text-xl font-bold">
+		<h2 class="text-gray-800 text-xl font-bold">
 			Skills
 		</h2>
-		<div class="flex flex-wrap gap-4">
+		<div class="flex flex-wrap gap-4 text-orange-800">
 			{SKILLS.map((skill)=> (
-				<div class="bg-[d6bf64] p-2 rounded-md">
+				<div class="p-2 rounded-md">
 					{skill}
 				</div>
 			))}

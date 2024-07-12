@@ -30,24 +30,24 @@ const {title, description, keywords, url} = Astro.props
         <ViewTransitions />
         <slot name="head" />
     </head>
-    <body class="bg-[#1E2021] text-[#FBF0C6] min-w-full min-h-screen flex flex-col p-1 px-[5vw] md:px-[20vw] gap-8 mx-auto">
-    <header class="flex bg-[#32302F] p-4 w-full rounded-lg mx-auto items-center justify-between md:">
-        <div class="flex items-center">
+    <body class="bg-[#FCFCFE] min-w-full min-h-screen flex flex-col p-1 px-[5vw] md:px-[20vw] gap-8 mx-auto">
+    <header class="flex bg-gray-50 w-full rounded-lg mx-auto items-center justify-between md:">
+        <div class="flex  items-center gap-4">
             <Image src={avatar} class="rounded-lg" alt="Logo" width="75" height="75" />
             <a href="/" class="text-lg font-bold ml-2 md:ml-0">IshanKBG</a>
         </div>
 
         <div class="flex flex-col md:flex-row md:gap-4">
-            <a href="/archive" class="text-[#FBF0C6] mt-2 md:mt-0" data-astro-prefetch>Archive</a>
-             
-            <a href="/about" class="text-[#FBF0C6]">About</a>
+            <a href="/archive" class="mt-2 md:mt-0 text-gray-600 hover:underline" data-astro-prefetch>Archive</a>
+
+            <a href="/about" class="text-gray-600 hover:underline">About</a>
         </div>
     </header>
     <main class="flex flex-col gap-4">
         <slot />
     </main>
     <footer>
-        <p class="text-center">Checkout the <a href="https://github.com/IshanKBG/ishankbg.dev">source code</a></p>
+        <p class="text-center text-gray-700">Checkout the <a href="https://github.com/IshanKBG/ishankbg.dev">source code</a></p>
     </footer>
     </body>
 	<style is:global>

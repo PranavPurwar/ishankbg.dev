@@ -53,7 +53,6 @@ int main() {
   printStudent(studentPtr);
   return 0;
 }
-
 ``` 
 In the above example we create a student struct on the heap and then print its information. Crucially, we forget to update the pointer after deallocating the memory. Trying to access the student information through this pointer afterwards becomes dangerous - it's a dangling pointer! This can lead to crashes or undefined behaviour because the memory is no longer valid.
 ####  Out-Of-Scope Variables
@@ -70,8 +69,6 @@ int main()
 	printf("%d", *ptr);
 	return 0;
 }
-
-
 ```
  In the above example we attempt to print the value of a variable `a` after it goes out of scope. Initially, a pointer `ptr` is assigned the address of `a`. However, when the code block ends, `a` is no longer valid memory. Despite this, `ptr` still points to that freed memory, creating a dangling pointer. Dereferencing this pointer (using `*ptr`) leads to undefined behavior, which could cause a crash or unexpected results.
 ### Rust to the Rescue!
@@ -109,7 +106,6 @@ help: consider using the `'static` lifetime
 
 For more information about this error, try `rustc --explain E0106`.
 error: could not compile `ownership` due to previous error
-
 ```
 
 We are returning a reference to the `String`. But here, `s` goes out of scope, and is dropped. Its memory goes away. Thus it creates a dangling reference here. To solve the above error by removing the reference all together and returning the `String` directly.
