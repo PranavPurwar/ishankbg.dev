@@ -12,14 +12,14 @@ const allPosts = await getCollection("blog", ({data}) => {
  url=`${Astro.site}/archive`
 >
     <div class="flex flex-col gap-4" aria-label="Recent Articles">
-        <h2 class="text-gray-800 font-semibold text-xl">
+        <h2 class="text-gray-800 dark:text-gray-100 font-semibold text-3xl">
             Articles
         </h2>
-        <div class="flex flex-col gap-4 text-amber-900">
+        <div class="flex flex-col gap-4 text-amber-900 dark:text-amber-200 text-lg">
             {allPosts.map((blog)=> (
                     <article>
-                        • <time datetime={new Date(blog.data.pubDate).toISOString()}>{new Date(blog.data.pubDate).toLocaleDateString()}</time> -
-                        <a class="text-blue-500 hover:text-blue-800 hover:underline" href=`/archive/${blog.slug}` data-astro-prefetch>
+                        • <time class="dark:text-gray-200 dark:antialiased" datetime={new Date(blog.data.pubDate).toISOString()}>{new Date(blog.data.pubDate).toLocaleDateString()}</time> -
+                        <a class="text-blue-500 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-500 hover:underline" href=`/archive/${blog.slug}` data-astro-prefetch>
                             {blog.data.title}
                         </a>
                     </article>

@@ -11,4 +11,4 @@ export type Props<T extends Thing> = {
 const { item, space } = Astro.props;
 ---
 
-<script type="application/ld+json" set:html={JsonLd(item, space)} />
+<script is:inline type="application/ld+json" set:html={JsonLd(item, space)} />

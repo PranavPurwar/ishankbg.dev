@@ -13,8 +13,11 @@ export default defineConfig({
 	prefetch: true,
 	integrations: [tailwind(), sitemap(), embed(), mdx({
 		shikiConfig: {
-			theme: 'vitesse-dark',
-
+			themes: {
+				light: "material-theme-lighter",
+		        dark: "vitesse-dark"
+			},
+			
 			wrap: true
 		},
 		gfm: true,
