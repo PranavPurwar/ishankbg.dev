@@ -15,14 +15,20 @@ const allPosts = await getCollection("blog", ({data}) => {
         <h2 class="text-gray-800 dark:text-gray-100 font-semibold text-3xl">
             Articles
         </h2>
-        <div class="flex flex-col gap-4 text-amber-900 dark:text-amber-200 text-lg">
+        <div class="flex flex-col gap-4 text-xl">
             {allPosts.map((blog)=> (
-                    <article>
-                        • <time class="dark:text-gray-200 dark:antialiased" datetime={new Date(blog.data.pubDate).toISOString()}>{new Date(blog.data.pubDate).toLocaleDateString()}</time> -
-                        <a class="text-blue-500 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-500 hover:underline" href=`/archive/${blog.slug}` data-astro-prefetch>
+                <ul class="group">
+                    <li class="list-disc">
+                        <time class="text-lg text-gray-700 dark:text-gray-300 dark:group-hover:text-amber-500 dark:subpixel-antialiased" datetime={new Date(blog.data.pubDate).toISOString()}>{new Date(blog.data.pubDate).toLocaleDateString()}</time> -
+                        <a class="text-blue-500 dark:text-blue-400 group-hover:text-blue-800 dark:group-hover:text-blue-400 group-hover:underline text-xl font-medium" href=`/archive/${blog.slug}` data-astro-prefetch>
                             {blog.data.title}
                         </a>
-                    </article>
+
+                        <p class="text-gray-600 dark:text-gray-200 text-lg">
+                        { blog.data.description }
+                        </p>
+                    </li>
+                </ul>
             ))}
         </div>
     </div>

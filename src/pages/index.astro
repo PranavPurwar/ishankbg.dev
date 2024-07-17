@@ -63,30 +63,33 @@ export const SKILLS = [
 	<h2 class="text-gray-700 dark:text-gray-100 text-2xl font-bold">
 		Recent Articles
 	</h2>
-	<div class="flex flex-col gap-4">
+	<ul class="flex flex-col gap-2 text-lg list-disc ps-8 capitalize align-middle">
 		{allPosts.map((blog)=> (
-			<div class="text-gray-800 dark:text-gray-200">
-				• <time datetime={ new Date(blog.data.pubDate).toISOString()}>{ new Date(blog.data.pubDate).toLocaleDateString() }</time> -
-				<a class="text-blue-500 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-500 hover:underline" href=`/archive/${blog.slug}` data-astro-prefetch>
+			<li class="text-gray-800 dark:text-gray-200 dark:subpixel-antialiased transition-all group">
+			    <p class="hover:text-blue-800 dark:hover:text-blue-500 duration-300">
+				<time class="text-gray-600 dark:text-amber-200 group-hover:text-amber-600 dark:group-hover:text-amber-500" datetime={ new Date(blog.data.pubDate).toISOString()}>{ new Date(blog.data.pubDate).toLocaleDateString() }</time> -
+				<a class="group-hover:underline group-hover:decoration-2 group-hover:decoration-blue-500 dark:group-hover:decoration-blue-400" href={`/archive/${blog.slug}`} data-astro-prefetch>
 					{ blog.data.title }
 				</a>
-			</div>
+				</p>
+			</li>
 		))}
-	</div>
-</>
+	</ul>
+</section>
 	<section class="flex flex-col gap-4" aria-label="Quick Links">
 		<h2 class="text-gray-700 dark:text-gray-100 text-2xl font-bold">
 			Quick Links
 		</h2>
 
-		<div class="flex flex-col text-orange-900 dark:text-amber-200">
+		<div class="flex flex-col subpixel-antialiased text-lg ps-8">
 			{LINKS.map((link)=> (
-				<div>
-					•
-					<a class="text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-500 hover:underline" href=`${link.url}`>
+				<ul class="transition-all duration-300 list-disc">
+					<li>
+					<a class="text-orange-900 dark:text-amber-200 hover:underline hover:decoration-2 hover:decoration-blue-500 dark:hover:decoration-blue-400" href={link.url}>
 						{ link.title }
-					</a>
-				</div>
+						</a>
+					</li>
+				</ul>
 			))}
 
 		</div>
@@ -97,10 +100,10 @@ export const SKILLS = [
 		</h2>
 		<div class="flex flex-wrap gap-4 text-orange-900 dark:text-amber-400 text-lg">
 			{SKILLS.map((skill)=> (
-				<div class="p-2 rounded-md">
+				<div class="p-2 rounded-md hover:bg-gray-800">
 					{skill}
 				</div>
 			))}
 		</div>
 	</section>
-</>
+</Layout>

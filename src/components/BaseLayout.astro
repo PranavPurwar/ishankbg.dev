@@ -1,68 +1,67 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 import avatar from "../assets/avatar.avif";
-import {Image} from "astro:assets";
-const {title, description, keywords, url} = Astro.props
+import { Image } from "astro:assets";
+const { title, description, keywords, url } = Astro.props;
 import ThemeIcon from './ThemeIcon.astro';
 ---
+
 <html lang="en">
     <head>
-		<title>{title}</title>
+        <title>{title}</title>
         <link rel="preconnect" href="https://rsms.me/">
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
         <link rel="sitemap" href="/sitemap-index.xml" />
-        <link
-                rel="alternate"
-                type="application/rss+xml"
-                title={title}
-                href={`${Astro.site}feed.xml`}
-        />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
+        <link rel="alternate" type="application/rss+xml" title={title} href={`${Astro.site}feed.xml`} />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
         <meta name="description" content={description}>
         <meta name="keywords" content={keywords}>
         <meta name="author" content="Ishan Jaiswal">
-		<link rel="canonical" href={url}>
+        <link rel="canonical" href={url}>
         <script defer src="https://umami-black-xi.vercel.app/script.js" data-website-id="6c8a1e3e-f588-47e9-93dd-2d946cad1f39" is:inline></script>
         <ViewTransitions />
         <slot name="head" />
     </head>
-    <body class="bg-[#FCFCFE] dark:bg-[#1E2021] dark:text-[#FBF0C6] flex flex-col gap-8 mx-auto">
-    <header class="flex bg-gray-100 dark:bg-[#1E2021] w-full rounded-lg mx-auto px-6 py-3 items-center justify-between">
-        <div class="flex  items-center gap-4">
-            <Image src={avatar} class="rounded-lg" alt="Logo" width="75" height="75" />
-            <a href="/" class="text-lg dark:text-gray-100 font-bold ml-2 md:ml-0">IshanKBG</a>
-        </div>
+    <body class="bg-[#FCFCFE] dark:bg-[#1E2021] text-[#1E2021] dark:text-[#FBF0C6] flex flex-col gap-8 mx-auto">
+        <header class="flex bg-gray-100 dark:bg-[#1E2021] w-full rounded-lg mx-auto px-6 py-3 items-center justify-between">
+            <div class="flex items-center gap-4">
+                <Image loading="eager" src={avatar} class="rounded-lg" alt="Logo" width="75" height="75" />
+                <a href="/" class="text-lg dark:text-gray-100 font-bold ml-2 md:ml-0">IshanKBG</a>
+            </div>
+            <div class="flex flex-col items-center md:flex-row md:gap-4 text-gray-600 dark:text-gray-200">
+                <a href="/archive" class="mt-2 md:mt-0 hover:underline" data-astro-prefetch>Archive</a>
+                <a href="/about" class="hover:underline">About</a>
+                <ThemeIcon class="ms-8" />
+            </div>
+        </header>
+        <main class="flex flex-col dark:text-gray-200 gap-4 px-12 w-full">
+            <slot />
+        </main>
 
-        <div class="flex flex-col items-center md:flex-row md:gap-4 text-gray-600 dark:text-gray-200">
-            <a href="/archive" class="mt-2 md:mt-0 hover:underline" data-astro-prefetch>Archive</a>
-
-            <a href="/about" class="hover:underline">About</a>
-
-            <ThemeIcon class="ms-8" />
-
-        </div>
-    </header>
-    <main class="flex flex-col dark:text-gray-200 gap-4 px-12 w-full">
-        <slot />
-    </main>
-    <footer>
-        <p class="text-center text-gray-700 dark:text-gray-200">Checkout the <a href="https://github.com/IshanKBG/ishankbg.dev">source code</a></p>
-    </footer>
+        <div class="center ml-14 mr-14 h-[0.5px] bg-gray-200 dark:bg-gray-700" />
+        <footer class="mb-8">
+            <div class="text-center text-gray-700 dark:text-gray-200">
+                <p class="text-lg">
+                  Licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" class="text-blue-500 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300">GPLv3</a>
+                </p>
+                <p class="text-lg">
+                    Checkout the <a href="https://github.com/IshanKBG/ishankbg.dev" class="text-blue-500 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300">source code</a>
+                </p>
+            </div>
+        </footer>
     </body>
-	<style is:global>
-:root {
-  font-family: Inter, sans-serif;
-  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
-}
-@supports (font-variation-settings: normal) {
-  :root { font-family: InterVariable, sans-serif; }
-}
-
-</style>
-
+    <style is:global>
+        :root {
+            font-family: Inter, sans-serif;
+            font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+        }
+        @supports (font-variation-settings: normal) {
+            :root { font-family: InterVariable, sans-serif; }
+        }
+    </style>
 </html>
